@@ -1,7 +1,7 @@
 import psycopg2
 import telebot
 from telebot import types
-from admin import token, password
+from admin import token, password, admin_id
 
 
 conn = psycopg2.connect(
@@ -17,8 +17,7 @@ cursor = conn.cursor()
 
 TOKEN = token
 bot = telebot.TeleBot(TOKEN)
-admin_id = 525820323
-
+admin_id = admin_id
 courses = {
     'Unity': [
         'Урок 1: https://example.com/урок1',
