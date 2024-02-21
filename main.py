@@ -141,9 +141,10 @@ def handle_admin_message(message):
     users = cursor.fetchall()
 
     for user in users:
-        bot.send_message(user[0], admin_message)
+        if user[0] != bot.get_me().id:
+            bot.send_message(user[0], admin_message)
 
-    bot.reply_to(message, "Сообщение отправлено всем пользователям!")
+    bot.reply_to(message, "Сообщение отправлено всем пользователям")
 
 
 bot.polling(non_stop=True)
